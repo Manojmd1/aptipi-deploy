@@ -4,7 +4,9 @@ import pandas as pd
 import os
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('MANOJ2004', 'fallback_key')
+
+# ✅ Secret key loaded from Render environment
+app.secret_key = os.environ.get('SECRET_KEY', 'fallback_key')
 
 # Dummy admin credentials
 ADMIN_USERNAME = 'admin'
@@ -36,6 +38,9 @@ def contact():
         mobile = request.form['mobile']
         message = request.form['message']
 
+        # Debug log to check if data is received
+        print(f"[CONTACT FORM] Received: {name}, {email}, {mobile}, {message}")
+
         # Save to SQLite
         conn = sqlite3.connect('database.db')
         conn.execute("INSERT INTO contact (name, email, mobile, message) VALUES (?, ?, ?, ?)",
@@ -43,10 +48,7 @@ def contact():
         conn.commit()
         conn.close()
 
-        # Save to Excel
-        import pandas as pd
-        import os
-
+        # Save to Excel (Render allows only /tmp directory for writing)
         excel_file = 'contacts.xlsx'
         data = {
             "Name": [name],
@@ -64,7 +66,6 @@ def contact():
 
         return redirect('/')
     return render_template('contact.html')
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
