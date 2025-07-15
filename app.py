@@ -13,7 +13,7 @@ ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = 'admin123'
 
 def init_db():
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('/tmp/database.db')
     conn.execute('''CREATE TABLE IF NOT EXISTS contact (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT,
@@ -42,7 +42,7 @@ def contact():
         print(f"[CONTACT FORM] Received: {name}, {email}, {mobile}, {message}")
 
         # Save to SQLite
-        conn = sqlite3.connect('database.db')
+        conn = sqlite3.connect('/tmp/database.db')
         conn.execute("INSERT INTO contact (name, email, mobile, message) VALUES (?, ?, ?, ?)",
                      (name, email, mobile, message))
         conn.commit()
