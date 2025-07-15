@@ -4,7 +4,7 @@ import pandas as pd
 import os
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Use a secure key in production
+app.secret_key = os.environ.get('MANOJ2004', 'fallback_key')
 
 # Dummy admin credentials
 ADMIN_USERNAME = 'admin'
