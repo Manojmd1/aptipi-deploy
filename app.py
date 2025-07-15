@@ -49,7 +49,7 @@ def contact():
         conn.close()
 
         # Save to Excel (Render allows only /tmp directory for writing)
-        excel_file = 'contacts.xlsx'
+        excel_file = '/tmp/contacts.xlsx'
         data = {
             "Name": [name],
             "Email": [email],
