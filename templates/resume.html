@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container py-5">
+  <!-- Page Heading -->
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-danger">Resume Building Services</h1>
+    <p class="lead text-muted mt-3">Crafting personalized, ATS-optimized resumes that elevate your professional identity.</p>
+    <p class="text-success fw-semibold fs-5">💼 Starting at just <strong>₹100</strong> per resume | 80+ ATS Score Guaranteed</p>
+  </div>
+
+  <!-- Resume Features -->
+  <div class="row gy-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body">
+          <h4 class="card-title text-dark fw-bold mb-4">
+            <i class="bi bi-ui-checks-grid text-danger me-2"></i>What You Get
+          </h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">📄 Modern, clean and recruiter-friendly design</li>
+            <li class="list-group-item">🧠 Customized content tailored to your target job role</li>
+            <li class="list-group-item">🔍 80+ ATS (Applicant Tracking System) compatibility score</li>
+            <li class="list-group-item">📁 Delivered in both PDF and editable Word format</li>
+            <li class="list-group-item">🔄 Unlimited revisions within 3 days of delivery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body">
+          <h4 class="card-title text-dark fw-bold mb-4">
+            <i class="bi bi-star-fill text-warning me-2"></i>Why Choose AptiPi?
+          </h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">✔ Designed by HR professionals with real recruitment experience</li>
+            <li class="list-group-item">✔ Suitable for freshers, students, and working professionals</li>
+            <li class="list-group-item">✔ Industry-specific resume customization</li>
+            <li class="list-group-item">✔ Guidance on LinkedIn optimization (on request)</li>
+            <li class="list-group-item">✔ Delivery within 24 hours</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Resume Samples -->
+<div class="mt-5">
+  <h4 class="fw-bold text-dark text-center mb-4">Sample Resume Snapshots</h4>
+  <div class="row text-center">
+    <div class="col-md-4 mb-3">
+      <img src="{{ url_for('static', filename='images/resume_sample1.png') }}" class="img-fluid rounded shadow-sm resume-sample-img" alt="Sample Resume 1">
+    </div>
+    <div class="col-md-4 mb-3">
+      <img src="{{ url_for('static', filename='images/resume_sample2.png') }}" class="img-fluid rounded shadow-sm resume-sample-img" alt="Sample Resume 2">
+    </div>
+    <div class="col-md-4 mb-3">
+      <img src="{{ url_for('static', filename='images/resume_sample3.jpeg') }}" class="img-fluid rounded shadow-sm resume-sample-img" alt="Sample Resume 3">
+    </div>
+  </div>
+</div>
+
+
+  <!-- Call to Action -->
+  <div class="text-center mt-5">
+    <a href="/contact" class="btn btn-lg btn-danger px-5 py-2 rounded-pill shadow-sm">
+      <i class="bi bi-envelope-fill me-2"></i>Get Your Resume Now
+    </a>
+  </div>
+</div>
+
+<style>
+  .resume-sample-img {
+    height: 350px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #fff;
+  }
+</style>
+
+{% endblock %}

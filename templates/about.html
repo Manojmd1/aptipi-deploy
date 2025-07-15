@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- About Banner -->
+<section class="bg-light py-5 text-center" data-aos="fade-down">
+  <div class="container">
+    <h2 class="display-5 fw-bold text-primary">Who We Are</h2>
+    <p class="lead text-muted">Empowering learners, professionals, and businesses through knowledge, strategy, and support.</p>
+  </div>
+</section>
+
+<!-- About Content -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <!-- Image -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="AptiPi Technologies" class="img-fluid rounded-4 shadow-lg w-100" style="max-width: 90%;">
+      </div>
+
+      <!-- Text -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <h4 class="fw-bold text-dark mb-3">About AptiPi Technologies</h4>
+        <p class="fs-5 text-muted">
+          <strong>AptiPi Technologies</strong> is a forward-thinking startup committed to helping individuals and organizations grow through expertly crafted consultancy, immersive training programs, impactful reports, and standout resume-building services.
+        </p>
+        <p class="fs-5 text-muted">
+          We believe in transforming potential into performance. Whether you’re a student, entrepreneur, or business leader — AptiPi provides the guidance, tools, and expertise to help you thrive in a competitive world.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 text-center" data-aos="fade-up">
+  <div class="container">
+    <h4 class="fw-bold text-primary">Ready to Connect with AptiPi?</h4>
+    <p class="text-muted mb-4">Let’s discuss how we can help you grow personally and professionally.</p>
+    <a href="/contact" class="btn btn-lg btn-outline-primary px-5 py-2 rounded-pill fw-semibold shadow-sm">
+      <i class="bi bi-envelope-paper-fill me-2"></i> Get in Touch
+    </a>
+  </div>
+</section>
+
+<!-- Custom Styles -->
+<style>
+  .bg-gradient {
+    background-size: cover;
+    background-position: center;
+  }
+
+  @media (max-width: 768px) {
+    .text-center h2, .text-center h3 {
+      font-size: 1.8rem;
+    }
+  }
+</style>
+
+{% endblock %}

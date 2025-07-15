@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container py-5">
+  <!-- Heading -->
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-warning display-5">Project Report Writing Services</h1>
+    <p class="lead text-muted mt-3">
+      We create professionally structured, academically compliant, and submission-ready project reports for <strong>students, startups, and professionals</strong>.
+    </p>
+    <p class="text-success fw-semibold fs-5">
+      📝 Reports are crafted strictly according to your college or university template and formatting guidelines.
+    </p>
+  </div>
+
+  <!-- Pricing -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-6">
+      <div class="bg-light p-4 rounded shadow-sm text-center">
+        <h4 class="fw-bold text-dark mb-3">Transparent Pricing</h4>
+        <ul class="list-unstyled fs-5">
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Mini Project Report:</strong> ₹200</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Final Year Project Report:</strong> ₹300</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="row gy-4">
+    <!-- What We Deliver -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h4 class="card-title fw-bold text-dark mb-4">
+            <i class="bi bi-file-earmark-code-fill text-warning me-2"></i>What’s Included in Your Report
+          </h4>
+          <ul class="list-unstyled fs-6">
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Abstract and Introduction</li>
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>System Architecture & Diagrams</li>
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Technology Stack Explanation</li>
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Code Snippets with Proper Commentary</li>
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Use Case, DFD & Flow Charts</li>
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Testing Techniques & Output Screenshots</li>
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Conclusion and Future Scope</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h4 class="card-title fw-bold text-dark mb-4">
+            <i class="bi bi-award-fill text-primary me-2"></i>Why Choose AptiPi Technologies?
+          </h4>
+          <ul class="list-unstyled fs-6">
+            <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-secondary me-2"></i>100% Compliance with University Format</li>
+            <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-secondary me-2"></i>Original Content – No Plagiarism Guaranteed</li>
+            <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-secondary me-2"></i>Includes Code Explanation & Output Analysis</li>
+            <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-secondary me-2"></i>Delivery in Both PDF and Editable Word Format</li>
+            <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-secondary me-2"></i>Quick Turnaround – Ready in 1 to 2 Days</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Button -->
+  <div class="text-center mt-5">
+    <a href="/contact" class="btn btn-lg btn-warning px-5 py-2 rounded-pill shadow-sm">
+      <i class="bi bi-envelope-fill me-2"></i>Request Your Report Now
+    </a>
+  </div>
+</div>
+<style>
+  .card-body ul li {
+    line-height: 1.7;
+  }
+  @media (max-width: 768px) {
+    .card-body h4 {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+{% endblock %}

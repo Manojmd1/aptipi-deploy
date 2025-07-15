@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<div class="container py-5">
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <h2 class="text-primary fw-bold">Consultancy Services</h2>
+      <p class="lead text-muted">
+        AptiPi Technologies offers comprehensive and personalized consultancy services designed to meet your specific goals and challenges. Whether you're a student undertaking an academic project, a startup founder strategizing for market entry, or a business leader seeking operational efficiency, we deliver actionable insights grounded in industry expertise and current trends. Our consultancy is rooted in research, innovation, and real-world experience, helping you make confident, data-driven decisions. From project ideation and technology selection to business model optimization and academic mentoring, AptiPi is your trusted partner for sustainable growth and smart execution.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="{{ url_for('static', filename='images/consultancy.jpg') }}" alt="Consultancy" class="img-fluid rounded shadow">
+    </div>
+  </div>
+
+  <!-- Services We Offer -->
+  <div class="mb-5">
+    <h4 class="text-dark fw-semibold">Our Consultancy Areas</h4>
+    <ul class="list-group list-group-flush fs-5">
+      <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Startup Planning & Strategy</li>
+      <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Business Model Development</li>
+      <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Technical Guidance for Student Projects</li>
+      <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Technology Stack Recommendations</li>
+      <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Education/EdTech Consulting</li>
+      <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Digital Transformation Consulting</li>
+    </ul>
+  </div>
+
+  <!-- Why Choose Us -->
+  <div class="mb-5">
+    <h4 class="text-dark fw-semibold">Why Choose AptiPi?</h4>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <i class="bi bi-person-check-fill display-4 text-primary mb-3"></i>
+            <h6 class="fw-bold">Experienced Professionals</h6>
+            <p class="text-muted">Our team consists of industry experts, academic mentors, and startup advisors.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <i class="bi bi-graph-up-arrow display-4 text-success mb-3"></i>
+            <h6 class="fw-bold">Results-Driven Approach</h6>
+            <p class="text-muted">We offer actionable insights that help you grow, scale, or solve key technical challenges.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <i class="bi bi-clock-history display-4 text-warning mb-3"></i>
+            <h6 class="fw-bold">On-Time Delivery</h6>
+            <p class="text-muted">We respect your deadlines and ensure timely feedback, sessions, and reports.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="mb-4">
+    <h4 class="text-dark fw-semibold">Pricing</h4>
+    <p class="fs-5 text-muted">Our consultancy services are offered at flexible rates based on project complexity:</p>
+    <ul class="fs-5">
+      <li><strong>Basic Consultation:</strong> ₹1 (30-minute session)</li>
+      <li><strong>Standard Project Review:</strong> ₹500</li>
+      <li><strong>Advanced Business Strategy:</strong> ₹1000</li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="text-center mt-5">
+    <a href="/contact" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow">
+      <i class="bi bi-calendar2-check-fill me-2"></i>Schedule a Consultation
+    </a>
+  </div>
+</div>
+
+<style>
+  ul.list-group li {
+    background: transparent;
+    border: none;
+  }
+  @media (max-width: 576px) {
+    h2, h4 {
+      font-size: 1.5rem;
+    }
+    .btn-lg {
+      font-size: 1rem;
+      padding: 0.6rem 1.5rem;
+    }
+  }
+</style>
+{% endblock %}

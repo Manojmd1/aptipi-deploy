@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container py-5">
+  <!-- Heading -->
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-success">Training Programs</h1>
+    <p class="lead text-muted mt-3">
+      At <strong>AptiPi Technologies</strong>, we offer expertly crafted training programs that blend theory with hands-on experience.
+      Whether you're a student, graduate, or working professional, our programs are designed to make you industry-ready.
+    </p>
+    <p class="text-info fw-semibold fs-5">💡 Learn from experienced mentors, sharpen your skills, and unlock your dream career path.</p>
+  </div>
+
+  <!-- Training Modules & Aptitude Section -->
+  <div class="row gy-4">
+    <!-- Technical Modules -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h4 class="card-title mb-4 text-success fw-bold"><i class="bi bi-journal-code me-2"></i>Core Training Modules</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary me-2"></i>Python Programming (Beginner to Advanced)</li>
+            <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary me-2"></i>Web Development (HTML, CSS, JavaScript, React)</li>
+            <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary me-2"></i>Data Science & Machine Learning</li>
+            <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary me-2"></i>Database Management (MySQL, MongoDB)</li>
+            <li class="list-group-item"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Aptitude & Logical Reasoning</strong></li>
+            <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary me-2"></i>Git, GitHub & Version Control</li>
+            <li class="list-group-item"><i class="bi bi-check-circle-fill text-primary me-2"></i>Mock Interviews & Resume Building</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aptitude Training -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h4 class="card-title mb-4 text-info fw-bold"><i class="bi bi-bar-chart-fill me-2"></i>Aptitude Training Highlights</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="bi bi-arrow-right-circle-fill text-secondary me-2"></i>Quantitative: Numbers, Percentages, Time & Work</li>
+            <li class="list-group-item"><i class="bi bi-arrow-right-circle-fill text-secondary me-2"></i>Logical: Puzzles, Syllogisms, Blood Relations</li>
+            <li class="list-group-item"><i class="bi bi-arrow-right-circle-fill text-secondary me-2"></i>Verbal: Grammar, Vocabulary, Comprehension</li>
+            <li class="list-group-item"><i class="bi bi-arrow-right-circle-fill text-secondary me-2"></i>Placement-Oriented Practice Sets & Time Management</li>
+            <li class="list-group-item"><i class="bi bi-arrow-right-circle-fill text-secondary me-2"></i>Ideal for Campus Placements, Bank Exams, and Competitive Tests</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing & CTA -->
+  <div class="mt-5">
+    <div class="bg-light p-4 rounded shadow-sm">
+      <h4 class="fw-bold text-dark mb-3"><i class="bi bi-tag-fill text-success me-2"></i>Pricing</h4>
+      <p class="fs-5 mb-1"><i class="bi bi-play-circle-fill text-success me-2"></i>All training is <strong class="text-success">available free</strong> via our exclusive YouTube sessions.</p>
+      <p class="text-muted">For live doubt sessions, personalized mentoring, or advanced training bundles, please <a href="/contact" class="text-decoration-underline text-primary">get in touch</a>.</p>
+    </div>
+  </div>
+
+  <!-- CTA Button -->
+  <div class="text-center mt-5">
+    <a href="/contact" class="btn btn-lg btn-success px-5 py-2 rounded-pill shadow-sm">
+      <i class="bi bi-envelope-fill me-2"></i>Enroll Now
+    </a>
+  </div>
+</div>
+<style>
+.list-group-item {
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+</style>
+{% endblock %}

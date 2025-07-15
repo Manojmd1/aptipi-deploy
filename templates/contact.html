@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Contact Banner -->
+<section class="py-5 bg-light text-center">
+  <div class="container">
+    <h2 class="display-5 fw-bold text-primary">Get in Touch with AptiPi</h2>
+    <p class="lead text-muted">We’re here to help you reach your goals. Send us a message or give us a call.</p>
+  </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <!-- Form Column (Left) -->
+      <div class="col-lg-7" data-aos="fade-right">
+        <div class="card shadow-lg border-0 p-4 rounded-4">
+          <h4 class="text-center mb-4 fw-bold text-primary">Send Us a Message</h4>
+          <form method="POST">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Full Name</label>
+                <input type="text" name="name" class="form-control shadow-sm" required placeholder="Your Name">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control shadow-sm" required placeholder="you@example.com">
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Mobile Number</label>
+                <input type="text" name="mobile" class="form-control shadow-sm" required placeholder="+91 XXXXXXXXXX">
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Your Message</label>
+                <textarea name="message" rows="4" class="form-control shadow-sm" required placeholder="Write your message here..."></textarea>
+              </div>
+              <div class="col-12 text-end">
+                <button type="submit" class="btn btn-gradient px-4 py-2 rounded-pill fw-semibold">
+                  <i class="bi bi-send-fill me-1"></i> Submit Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Info Column (Right) -->
+      <div class="col-lg-5" data-aos="fade-left">
+        <div class="ps-lg-4">
+          <h4 class="fw-bold text-dark mb-3">Contact Details</h4>
+          <p class="text-muted">Reach out via email, phone, or social media. We're happy to assist.</p>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-3"><i class="bi bi-envelope-fill text-primary me-2"></i> aptipitechnology@gmail.com</li>
+            <li class="mb-3"><i class="bi bi-telephone-fill text-success me-2"></i> +91 99720 28267</li>
+            <li class="mb-3"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Bangalore, India</li>
+          </ul>
+          <h6 class="fw-semibold">Follow Us</h6>
+          <div class="fs-4">
+            <a href="#" class="text-primary me-3"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-info me-3"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-danger"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Custom Styles -->
+<style>
+  .btn-gradient {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    border: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-gradient:hover {
+    background: linear-gradient(to right, #43e97b, #38f9d7);
+    transform: scale(1.05);
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #0d6efd !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.2);
+  }
+
+  .card {
+    background-color: #fefefe;
+    border-radius: 1rem;
+  }
+</style>
+
+{% endblock %}
