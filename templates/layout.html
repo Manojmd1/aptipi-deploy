@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🔷 AptiPi Technologies</title>
+  <title>AptiPi Technologies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
@@ -215,4 +215,18 @@
 <script>AOS.init({ duration: 1000, once: true });</script>
 
 </body>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="container mt-4">
+        {% for message in messages %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
 </html>
