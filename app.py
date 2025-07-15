@@ -1,19 +1,19 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session, url_for, send_file
 import sqlite3
 import pandas as pd
 import os
 
 app = Flask(__name__)
-
-# ✅ Secret key loaded from Render environment
 app.secret_key = os.environ.get('SECRET_KEY', 'fallback_key')
 
-# Dummy admin credentials
 ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = 'admin123'
 
+DB_PATH = '/tmp/database.db'
+EXCEL_PATH = '/tmp/contacts.xlsx'
+
 def init_db():
-    conn = sqlite3.connect('/tmp/database.db')
+    conn = sqlite3.connect(DB_PATH)
     conn.execute('''CREATE TABLE IF NOT EXISTS contact (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT,
@@ -37,19 +37,16 @@ def contact():
         email = request.form['email']
         mobile = request.form['mobile']
         message = request.form['message']
-
-        # Debug log to check if data is received
         print(f"[CONTACT FORM] Received: {name}, {email}, {mobile}, {message}")
 
         # Save to SQLite
-        conn = sqlite3.connect('/tmp/database.db')
+        conn = sqlite3.connect(DB_PATH)
         conn.execute("INSERT INTO contact (name, email, mobile, message) VALUES (?, ?, ?, ?)",
                      (name, email, mobile, message))
         conn.commit()
         conn.close()
 
-        # Save to Excel (Render allows only /tmp directory for writing)
-        excel_file = '/tmp/contacts.xlsx'
+        # Save to Excel
         data = {
             "Name": [name],
             "Email": [email],
@@ -58,14 +55,21 @@ def contact():
         }
         df = pd.DataFrame(data)
 
-        if os.path.exists(excel_file):
-            existing = pd.read_excel(excel_file, engine='openpyxl')
+        if os.path.exists(EXCEL_PATH):
+            existing = pd.read_excel(EXCEL_PATH, engine='openpyxl')
             df = pd.concat([existing, df], ignore_index=True)
 
-        df.to_excel(excel_file, index=False, engine='openpyxl')
+        df.to_excel(EXCEL_PATH, index=False, engine='openpyxl')
 
         return redirect('/')
     return render_template('contact.html')
+
+@app.route('/download-contacts')
+def download_contacts():
+    if os.path.exists(EXCEL_PATH):
+        return send_file(EXCEL_PATH, as_attachment=True)
+    else:
+        return "No contact data found.", 404
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -83,7 +87,7 @@ def login():
 def admin():
     if not session.get('admin_logged_in'):
         return redirect('/login')
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM contact")
     contacts = cursor.fetchall()
