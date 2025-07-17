@@ -7,8 +7,8 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'fallback_key')  # Fallback key for local dev
 
 # Admin credentials
-ADMIN_USERNAME = 'admin'
-ADMIN_PASSWORD = 'admin123'
+ADMIN_USERNAME = 'aptivana'
+ADMIN_PASSWORD = 'aptipi@btm@2025'
 
 # Set up cross-platform file paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
