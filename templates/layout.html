@@ -14,26 +14,14 @@
   <link rel="icon" href="{{ url_for('static', filename='images/web1.jpg') }}" type="image/png">
 
   <style>
-    html {
-      scroll-padding-top: 90px;
-    }
-
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28 255, 255, 255, 1 %29)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
+    html { scroll-padding-top: 90px; }
+    body { margin: 0; padding: 0; }
+    
     .navbar {
       background: linear-gradient(90deg, #0d1117, #1f1f1f);
     }
 
-    .navbar-brand span {
-      color: #ffc107 !important;
-    }
+    .navbar-brand span { color: #ffc107 !important; }
 
     .navbar-nav .nav-link {
       color: #f8f9fa !important;
@@ -56,9 +44,7 @@
       transition: width 0.3s ease;
     }
 
-    .navbar-nav .nav-link:hover::after {
-      width: 100%;
-    }
+    .navbar-nav .nav-link:hover::after { width: 100%; }
 
     .brand-logo {
       font-family: 'Poppins', sans-serif;
@@ -96,22 +82,12 @@
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
 
-    footer a:hover {
-      color: #ffc107 !important;
-    }
-
-    footer a {
-      transition: color 0.3s ease;
-    }
+    footer a:hover { color: #ffc107 !important; }
+    footer a { transition: color 0.3s ease; }
 
     @media (max-width: 768px) {
-      .brand-name {
-        font-size: 1.6rem;
-      }
-
-      .brand-sub {
-        font-size: 1.2rem;
-      }
+      .brand-name { font-size: 1.6rem; }
+      .brand-sub { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -126,7 +102,9 @@
       <span class="brand-sub">Technologies</span>
     </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+    <!-- ✅ Working and visible navbar toggler -->
+    <button class="navbar-toggler bg-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -135,6 +113,7 @@
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
         <li class="nav-item">
           <a class="btn btn-warning btn-sm px-3 py-1 rounded-pill shadow-sm ms-lg-3" href="mailto:aptipitechnology@gmail.com">
             <i class="bi bi-telephone-fill me-1"></i> Let's Talk
@@ -145,13 +124,27 @@
   </div>
 </nav>
 
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="container mt-5 pt-4">
+      {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
 <!-- Page Content -->
 <div class="container pt-5" style="margin-top: 80px;">
   {% block content %}{% endblock %}
 </div>
 
 <!-- Footer -->
-<footer class="bg-dark text-white pt-5 pb-4">
+<footer class="bg-dark text-white pt-5 pb-4 mt-5">
   <div class="container">
     <div class="row gy-4">
 
@@ -215,18 +208,4 @@
 <script>AOS.init({ duration: 1000, once: true });</script>
 
 </body>
-<body>
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <div class="container mt-4">
-        {% for message in messages %}
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %}
-  {% endwith %}
-
 </html>

@@ -60,6 +60,7 @@
   <div class="container">
     <h2 class="fw-bold text-primary mb-4">Our Services</h2>
     <div class="row g-4">
+      <!-- Consultancy -->
       <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
         <a href="/consultancy" class="text-decoration-none text-dark">
           <div class="card shadow-sm h-100 border-0 hover-shadow transition">
@@ -67,10 +68,12 @@
               <i class="bi bi-lightbulb display-4 text-primary mb-3"></i>
               <h5 class="card-title fw-semibold">Consultancy</h5>
               <p class="text-muted">Expert advice in business strategy, tech, and academics.</p>
+              <a href="/consultancy" class="btn btn-sm btn-outline-primary rounded-pill mt-2">Explore</a>
             </div>
           </div>
         </a>
       </div>
+      <!-- Training -->
       <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
         <a href="/training" class="text-decoration-none text-dark">
           <div class="card shadow-sm h-100 border-0 hover-shadow transition">
@@ -78,10 +81,12 @@
               <i class="bi bi-mortarboard display-4 text-success mb-3"></i>
               <h5 class="card-title fw-semibold">Training Programs</h5>
               <p class="text-muted">Workshops, certifications & real-world skills for career growth.</p>
+              <a href="/training" class="btn btn-sm btn-outline-success rounded-pill mt-2">Explore</a>
             </div>
           </div>
         </a>
       </div>
+      <!-- Report Making -->
       <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
         <a href="/report-making" class="text-decoration-none text-dark">
           <div class="card shadow-sm h-100 border-0 hover-shadow transition">
@@ -89,10 +94,12 @@
               <i class="bi bi-file-earmark-text display-4 text-warning mb-3"></i>
               <h5 class="card-title fw-semibold">Report Making</h5>
               <p class="text-muted">Academic, startup and business reports — fully formatted.</p>
+              <a href="/report-making" class="btn btn-sm btn-outline-warning rounded-pill mt-2">Explore</a>
             </div>
           </div>
         </a>
       </div>
+      <!-- Resume Making -->
       <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="400">
         <a href="/resume-making" class="text-decoration-none text-dark">
           <div class="card shadow-sm h-100 border-0 hover-shadow transition">
@@ -100,6 +107,7 @@
               <i class="bi bi-file-person-fill display-4 text-danger mb-3"></i>
               <h5 class="card-title fw-semibold">Resume Making</h5>
               <p class="text-muted">Standout resumes crafted to impress recruiters fast.</p>
+              <a href="/resume-making" class="btn btn-sm btn-outline-danger rounded-pill mt-2">Explore</a>
             </div>
           </div>
         </a>
@@ -181,13 +189,24 @@
     box-shadow: 0 0.5rem 1.5rem rgba(0, 119, 182, 0.3);
   }
 
+  .card-body .btn {
+    transition: all 0.3s ease;
+  }
+
+  .card-body .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+
   @media (max-width: 768px) {
     .cta-glass {
       padding: 2rem 1.2rem;
     }
+
     .cta-glass h2 {
       font-size: 1.7rem !important;
     }
+
     .cta-glass p {
       font-size: 1rem !important;
     }

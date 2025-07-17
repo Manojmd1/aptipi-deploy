@@ -4,14 +4,22 @@ import pandas as pd
 import os
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'fallback_key')
+app.secret_key = os.environ.get('SECRET_KEY', 'fallback_key')  # Fallback key for local dev
 
+# Admin credentials
 ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = 'admin123'
 
-DB_PATH = '/tmp/database.db'
-EXCEL_PATH = '/tmp/contacts.xlsx'
+# Set up cross-platform file paths
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, 'data')
+DB_PATH = os.path.join(DATA_DIR, 'database.db')
+EXCEL_PATH = os.path.join(DATA_DIR, 'contacts.xlsx')
 
+# Ensure data directory exists
+os.makedirs(DATA_DIR, exist_ok=True)
+
+# Initialize database
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     conn.execute('''CREATE TABLE IF NOT EXISTS contact (
@@ -22,6 +30,7 @@ def init_db():
                     message TEXT)''')
     conn.close()
 
+# Home route
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -30,6 +39,7 @@ def home():
 def about():
     return render_template('about.html')
 
+# Contact form
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
@@ -64,6 +74,7 @@ def contact():
         return redirect('/')
     return render_template('contact.html')
 
+# Download Excel file
 @app.route('/download-contacts')
 def download_contacts():
     if os.path.exists(EXCEL_PATH):
@@ -71,6 +82,7 @@ def download_contacts():
     else:
         return "No contact data found.", 404
 
+# Login route
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -83,6 +95,7 @@ def login():
             return render_template('login.html', error="Invalid credentials")
     return render_template('login.html')
 
+# Admin dashboard
 @app.route('/admin')
 def admin():
     if not session.get('admin_logged_in'):
@@ -94,11 +107,13 @@ def admin():
     conn.close()
     return render_template('admin.html', contacts=contacts)
 
+# Logout
 @app.route('/logout')
 def logout():
     session.pop('admin_logged_in', None)
     return redirect('/')
 
+# Service pages
 @app.route('/consultancy')
 def consultancy():
     return render_template('consultancy.html')
@@ -115,6 +130,7 @@ def report_making():
 def resume_making():
     return render_template('resume.html')
 
+# Entry point
 if __name__ == '__main__':
     init_db()
     port = int(os.environ.get("PORT", 5000))
