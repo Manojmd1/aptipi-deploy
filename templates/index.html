@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<!-- Hero Section (With Local SVGs on Both Sides) -->
+<!-- Hero Section -->
 <section class="w-100 position-relative overflow-hidden" style="background: linear-gradient(135deg, white, white);">
   <!-- Left Decorative Shape -->
   <img src="{{ url_for('static', filename='images/web2.jpg') }}"
@@ -9,13 +9,13 @@
        class="position-absolute top-50 start-0 translate-middle-y opacity-25 d-none d-md-block"
        style="width: 220px;">
 
-  <!-- Right Decorative Shape (Same Blob, Flipped) -->
+  <!-- Right Decorative Shape (Flipped) -->
   <img src="{{ url_for('static', filename='images/web2.jpg') }}"
        alt="right-decor"
        class="position-absolute top-50 end-0 translate-middle-y opacity-25 d-none d-md-block"
        style="width: 220px; transform: scaleX(-1);">
 
-  <div class="container-fluid px-0">
+  <div class="container text-center">
     <div class="d-flex justify-content-center align-items-center py-4" style="min-height: 60vh;" data-aos="zoom-in">
       <div class="cta-glass p-4 p-md-5 rounded-4 shadow-lg text-center" style="max-width: 900px; width: 100%;">
         <h2 class="fw-bold display-5 mb-3" style="font-family: 'Poppins', sans-serif;">
@@ -33,9 +33,9 @@
 </section>
 
 <!-- Highlights Section -->
-<section class="bg-light py-5">
+<section class="bg-light py-5 text-center">
   <div class="container">
-    <div class="row text-center" data-aos="fade-up">
+    <div class="row justify-content-center" data-aos="fade-up">
       <div class="col-md-4">
         <i class="bi bi-lightbulb-fill display-4 text-primary mb-3"></i>
         <h5 class="fw-bold">Smart Consultancy</h5>
@@ -59,99 +59,65 @@
 <section class="text-center py-5 bg-white" data-aos="fade-up">
   <div class="container">
     <h2 class="fw-bold text-primary mb-4">Our Services</h2>
-    <div class="row g-4">
-      <!-- Consultancy -->
-      <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
-        <a href="/consultancy" class="text-decoration-none text-dark">
+    <div class="row g-4 justify-content-center">
+      <!-- Service Cards -->
+      {% set services = [
+        {'icon': 'lightbulb', 'color': 'primary', 'title': 'Consultancy', 'desc': 'Expert advice in business strategy, tech, and academics.', 'url': '/consultancy'},
+        {'icon': 'mortarboard', 'color': 'success', 'title': 'Training Programs', 'desc': 'Workshops, certifications & real-world skills for career growth.', 'url': '/training'},
+        {'icon': 'file-earmark-text', 'color': 'warning', 'title': 'Report Making', 'desc': 'Academic, startup and business reports — fully formatted.', 'url': '/report-making'},
+        {'icon': 'file-person-fill', 'color': 'danger', 'title': 'Resume Making', 'desc': 'Standout resumes crafted to impress recruiters fast.', 'url': '/resume-making'},
+      ] %}
+
+      {% for s in services %}
+      <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="{{ loop.index * 100 }}">
+        <a href="{{ s.url }}" class="text-decoration-none text-dark">
           <div class="card shadow-sm h-100 border-0 hover-shadow transition">
             <div class="card-body text-center">
-              <i class="bi bi-lightbulb display-4 text-primary mb-3"></i>
-              <h5 class="card-title fw-semibold">Consultancy</h5>
-              <p class="text-muted">Expert advice in business strategy, tech, and academics.</p>
-              <a href="/consultancy" class="btn btn-sm btn-outline-primary rounded-pill mt-2">Explore</a>
+              <i class="bi bi-{{ s.icon }} display-4 text-{{ s.color }} mb-3"></i>
+              <h5 class="card-title fw-semibold">{{ s.title }}</h5>
+              <p class="text-muted">{{ s.desc }}</p>
+              <a href="{{ s.url }}" class="btn btn-sm btn-outline-{{ s.color }} rounded-pill mt-2">Explore</a>
             </div>
           </div>
         </a>
       </div>
-      <!-- Training -->
-      <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-        <a href="/training" class="text-decoration-none text-dark">
-          <div class="card shadow-sm h-100 border-0 hover-shadow transition">
-            <div class="card-body text-center">
-              <i class="bi bi-mortarboard display-4 text-success mb-3"></i>
-              <h5 class="card-title fw-semibold">Training Programs</h5>
-              <p class="text-muted">Workshops, certifications & real-world skills for career growth.</p>
-              <a href="/training" class="btn btn-sm btn-outline-success rounded-pill mt-2">Explore</a>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- Report Making -->
-      <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
-        <a href="/report-making" class="text-decoration-none text-dark">
-          <div class="card shadow-sm h-100 border-0 hover-shadow transition">
-            <div class="card-body text-center">
-              <i class="bi bi-file-earmark-text display-4 text-warning mb-3"></i>
-              <h5 class="card-title fw-semibold">Report Making</h5>
-              <p class="text-muted">Academic, startup and business reports — fully formatted.</p>
-              <a href="/report-making" class="btn btn-sm btn-outline-warning rounded-pill mt-2">Explore</a>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- Resume Making -->
-      <div class="col-12 col-sm-6 col-md-3" data-aos="zoom-in" data-aos-delay="400">
-        <a href="/resume-making" class="text-decoration-none text-dark">
-          <div class="card shadow-sm h-100 border-0 hover-shadow transition">
-            <div class="card-body text-center">
-              <i class="bi bi-file-person-fill display-4 text-danger mb-3"></i>
-              <h5 class="card-title fw-semibold">Resume Making</h5>
-              <p class="text-muted">Standout resumes crafted to impress recruiters fast.</p>
-              <a href="/resume-making" class="btn btn-sm btn-outline-danger rounded-pill mt-2">Explore</a>
-            </div>
-          </div>
-        </a>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
 
 <!-- Testimonials -->
-<section class="bg-white border-top py-5" data-aos="fade-up">
+<section class="bg-white border-top py-5 text-center" data-aos="fade-up">
   <div class="container">
-    <h2 class="text-center text-primary fw-bold mb-5">What Our Clients Say</h2>
-    <div class="row g-4">
+    <h2 class="text-primary fw-bold mb-5">What Our Clients Say</h2>
+    <div class="row g-4 justify-content-center">
+      {% set testimonials = [
+        {'text': 'AptiPi made my report so polished that my professor was impressed instantly!', 'author': '— Rahul S., Final Year Student'},
+        {'text': 'Got placed after taking AptiPi’s resume and mock interview support!', 'author': '— Sneha D., Job Seeker'},
+        {'text': 'They helped us align our startup vision with solid tech strategies.', 'author': '— Karan M., Student'}
+      ] %}
+      {% for t in testimonials %}
       <div class="col-md-4">
-        <div class="p-4 border rounded h-100 shadow-sm bg-light">
-          <p class="fst-italic">“AptiPi made my report so polished that my professor was impressed instantly!”</p>
-          <h6 class="fw-bold text-end">— Rahul S., Final Year Student</h6>
+        <div class="p-4 border rounded h-100 shadow-sm bg-light text-start">
+          <p class="fst-italic">“{{ t.text }}”</p>
+          <h6 class="fw-bold text-end">{{ t.author }}</h6>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="p-4 border rounded h-100 shadow-sm bg-light">
-          <p class="fst-italic">“Got placed after taking AptiPi’s resume and mock interview support!”</p>
-          <h6 class="fw-bold text-end">— Sneha D., Job Seeker</h6>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 border rounded h-100 shadow-sm bg-light">
-          <p class="fst-italic">“They helped us align our startup vision with solid tech strategies.”</p>
-          <h6 class="fw-bold text-end">— Karan M., Student</h6>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
 
-<!-- Scripts & Styles -->
+<!-- Scripts & AOS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>AOS.init({ duration: 1000, once: true });</script>
 
+<!-- Styles -->
 <style>
   body {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     background-color: #f8f9fb;
   }
